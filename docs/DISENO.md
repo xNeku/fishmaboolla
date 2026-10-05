@@ -33,10 +33,11 @@ Fuente de verdad del diseño. Marcas:
 - [PROPUESTA] Las hijas salen en direcciones horizontales opuestas.
 
 ## 4. Arpón
-- [DECIDIDO] Disparo de arpón vertical.
+- [DECIDIDO] Disparo de arpón vertical: un proyectil en línea recta hacia arriba.
+- [DECIDIDO] No hay límite de arpones en pantalla: el único freno es un cooldown ligero entre disparos. El juego tiene que ser más rápido y dopamínico que el Pang original. Los valores se ajustan probando.
 - [PROPUESTA] El arpón se detiene en el primer impacto (como el Pang original). La perforación sería un buff, no el comportamiento base.
-- [PROPUESTA] Cooldown corto entre disparos (~0.35 s).
-- [ABIERTO] ¿Carga, combo o límite de arpones en pantalla?
+- [PROPUESTA] Cooldown de partida ~0.25 s (a ajustar probando).
+- [ABIERTO] ¿Carga o combo?
 
 ## 5. Pesca táctica on-the-fly
 - [DECIDIDO] En cualquier momento del combate el jugador puede pararse y clavar la caña en el suelo (aparece una fisura/charco).

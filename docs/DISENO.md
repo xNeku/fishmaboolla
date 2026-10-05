@@ -10,7 +10,10 @@ Fuente de verdad del diseño. Marcas:
 - [DECIDIDO] Protagonista: marinero gallego da Mariña, chubasquero amarillo.
 - [DECIDIDO] Enemigos: gaviotas y aves marinas que atacan lanzando bolas al jugador. Van mutando de lo costero a lo cósmico según avanzan los Actos.
 - [DECIDIDO] Las bolas siguen la física parabólica de rebote estilo Pang. El jugador les dispara con el arpón vertical; al impactar se dividen en dos y siguen rebotando, hasta que se rompen del todo.
-- [ABIERTO] Comportamiento de las aves: cuándo y cuántas bolas lanzan, si se mueven, si el jugador puede dañarlas o son intocables.
+- [DECIDIDO] Trama: el protagonista es un pescador de la Mariña gallega que solo quiere pescar tranquilo; las aves quieren robarle los peces y ahí empieza el conflicto. El tono va escalando hacia la paranoia y la locura.
+- [DECIDIDO] En cada zona hay un ave enorme como amenaza, pero no se ve en pantalla hasta la fase final (boss) de la zona. En el boss se ve arriba, lanzando ataques que modifican mucho el patrón de las bolas.
+- [ABIERTO] Cómo se generan las bolas en las salas normales, donde el ave no se ve (desde dónde, cuándo y cuántas).
+- [ABIERTO] Ataques concretos del ave en el boss y si el jugador puede dañarla.
 - [ABIERTO] Condición de fin de sala (romper todas las bolas, matar al ave, un número fijo de oleadas...).
 - [ABIERTO] Título final del juego.
 - [ABIERTO] Plataforma objetivo (PC/Steam, móvil...).
@@ -36,6 +39,7 @@ Fuente de verdad del diseño. Marcas:
 
 ## 5. Pesca táctica on-the-fly
 - [DECIDIDO] En cualquier momento del combate el jugador puede pararse y clavar la caña en el suelo (aparece una fisura/charco).
+- [DECIDIDO] La pesca es el bucle principal y ocurre todo el rato: el jugador tiene que optimizar su tiempo y sus habilidades para pescar mientras esquiva bolas, también entre oleadas.
 - [DECIDIDO] QTE ultra rápido, 1.0–1.5 s máximo.
 - [DECIDIDO] Si acierta: hitstop inmediato → zoom dramático a la boca del marinero → el pez se engulle de un bocado → si es nuevo, pausa breve con la carta del pez; si ya lo tiene, sube de nivel (stack I/II/III) → onda expansiva que empuja ligeramente a las aves hacia arriba.
 - [DECIDIDO] Se puede cancelar la pesca con dash (penalización de cooldown).

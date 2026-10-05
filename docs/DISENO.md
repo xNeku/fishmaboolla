@@ -13,9 +13,10 @@ Fuente de verdad del diseño. Marcas:
 - [DECIDIDO] Las bolas siguen la física parabólica de rebote estilo Pang. El jugador les dispara con el arpón vertical; al impactar se dividen en dos y siguen rebotando, hasta que se rompen del todo.
 - [DECIDIDO] Trama: el protagonista es un pescador de la Mariña gallega que solo quiere pescar tranquilo; las aves quieren robarle los peces y ahí empieza el conflicto. El tono va escalando hacia la paranoia y la locura.
 - [DECIDIDO] En cada zona hay un ave enorme como amenaza, pero no se ve en pantalla hasta la fase final (boss) de la zona. En el boss se ve arriba, lanzando ataques que modifican mucho el patrón de las bolas.
-- [ABIERTO] Cómo se generan las bolas en las salas normales, donde el ave no se ve (desde dónde, cuándo y cuántas).
-- [ABIERTO] Ataques concretos del ave en el boss y si el jugador puede dañarla.
-- [ABIERTO] Condición de fin de sala (romper todas las bolas, matar al ave, un número fijo de oleadas...).
+- [ABIERTO] Cómo se generan las bolas fuera de los bosses, donde el ave no se ve (desde dónde, con qué ritmo y patrones).
+- [DECIDIDO] El boss y el mini-boss, además de lanzar bolas, tienen vida propia y el jugador tiene que dañarlos para vencerlos. Algunas de sus bolas se pueden romper; otras solo se esquivan, porque no se quedan permanentes en pantalla.
+- [ABIERTO] Ataques concretos del boss y del mini-boss, y cómo se les hace daño (arpón directo, bolas devueltas...).
+- [DECIDIDO] El Acto termina al matar al boss (ver sección 7).
 - [ABIERTO] Título final del juego.
 - [ABIERTO] Plataforma objetivo (PC/Steam, móvil...).
 
@@ -73,19 +74,24 @@ Fuente de verdad del diseño. Marcas:
 
 ## 7. Estructura de la run
 - [DECIDIDO] 5 Actos: 1 Muelle/Ría, 2 Mar Bravo, 3 Santa Compaña/Estratosfera, 4 Órbita Abisal, 5 El Vacío/A Nada.
-- [DECIDIDO] Salas X-1 a X-5 (Acto 5 hasta 5-6). Mini-boss en X-3, boss en X-5 (5-6 en el Acto 5).
-- [DECIDIDO] Al terminar un Acto la build se resetea a 0.
-- [ABIERTO] Revisar si se mantiene el reset ahora que no hay re-skin (lo planteó Claude: puede hacerse repetitivo).
-- [DECIDIDO] Entre niveles hay apuestas condicionadas al rendimiento de la sala anterior (sin daño, pesca perfecta...).
-- [ABIERTO] Diseño concreto de las apuestas y su nombre dentro del juego.
+- [DECIDIDO] Sin salas. Cada Acto es una sola pantalla que se juega del tirón, sin cambios de escena, con el flow de *Ball x Pit*: entras, juegas y las cosas van apareciendo.
+- [DECIDIDO] Estructura de un Acto: tanda de bolas → descanso → tanda de bolas → mini-boss → descanso → tanda de bolas → boss. Al matar al boss, el Acto se acaba.
+- [DECIDIDO] Duración objetivo de un Acto: ~20 minutos (orientativo, a ajustar probando). Se juega seguido, sin puntos de guardado a mitad.
+- [DECIDIDO] Cada Acto empieza con la build a 0 (como Ball x Pit o Isaac). Los buffs no pasan de un Acto al siguiente.
+- [DECIDIDO] Al acabar un Acto se vuelve al menú o al punto de espera que tengamos, y desde ahí se juega el siguiente.
+- [ABIERTO] Qué es ese punto de espera (menú simple, hub, mapa...) y si los Actos se desbloquean en orden o se pueden elegir.
+- [DECIDIDO] Descansos: en pantalla nada ataca y el jugador tiene entre 30 y 60 s para pescar todo lo que pueda. Cuántos buffs saca depende de su habilidad, porque la pesca es un minijuego de reflejos y velocidad.
+- [PROPUESTA] La duración de cada descanso, el número de tandas y de bolas por tanda van como datos, para ajustarlos sin tocar código.
+- [ABIERTO] Las apuestas entre niveles dependían de las salas, que ya no existen. Decidir si desaparecen, pasan a los descansos o van entre Actos.
 - [PROPUESTA] Primer objetivo jugable: vertical slice con 2 Actos, no los 5.
 
 ## 8. Vida, daño y derrota
 - [DECIDIDO] El marinero tiene 3 vidas. Cada bola que le toca le quita una.
 - [DECIDIDO] Al perder las 3 vidas se acaba y hay que volver a empezar.
+- [PROPUESTA] Al perder se pierde el Acto y se repite desde 0, con la build a 0. No hay snapshot de la build ni checkpoints (el humano descartó volver con los mismos buffos).
 - [DECIDIDO] Los escudos y otros buffs dan más margen ante los toques.
 - [PROPUESTA] Tras un toque, ~1 s de invulnerabilidad (con parpadeo) para no perder varias vidas de golpe.
-- [ABIERTO] Desde dónde se vuelve a empezar al perder (la sala, el Acto o toda la run) y qué se pierde.
+- [ABIERTO] Si algo se conserva al perder (peces descubiertos, cartas...) o no se conserva nada.
 
 ## 9. Arte
 - [DECIDIDO] Todo el arte lo dibuja el humano a mano. Nada de arte con IA. Mientras tanto, programmer art por código. El arte final entra cambiando rutas en los datos.

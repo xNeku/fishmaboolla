@@ -27,6 +27,13 @@ func _ready() -> void:
 	input.jugador = _jugador
 	_jugador.add_child(input)
 
+	var capa := CanvasLayer.new()
+	capa.name = "CapaTactil"
+	add_child(capa)
+	var tactiles := ControlesTactiles.new()
+	tactiles.name = "ControlesTactiles"
+	capa.add_child(tactiles)
+
 
 func _process(_delta: float) -> void:
 	queue_redraw()

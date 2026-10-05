@@ -37,7 +37,9 @@ Arcade 2D tipo *Pang* + pesca exprés + progresión roguelike. Marinero gallego,
 - El input son órdenes ("saltar", "disparar") que ejecuta la lógica. Input solo por acciones del Input Map, nunca por tecla concreta.
 - Los valores de feel (duraciones, alturas, cooldowns, daños, alcances) como `@export` o en un Resource, para que el humano los ajuste en el inspector sin pedirte nada.
 - Contenido por datos con ID, para añadir cosas sin tocar código.
-- Los nodos se crean por código siempre que se pueda, en vez de editar `.tscn` (el humano puede estar editando escenas a la vez).
+- **Todo lo que el humano vaya a diseñar o retocar a mano en el editor va en escenas `.tscn` editables**: salas, mapas, decorado, el marinero, enemigos, UI. Nodos con nombres claros, jerarquía simple, valores en el inspector (`@export`) y piezas visuales como nodos sueltos (Sprite2D, Polygon2D...) para que se puedan mover, cambiar y animar sin tocar código. Prohibido montar por código una sala o un mapa que luego haya que diseñar.
+- Los nodos por código solo para lo que no se diseña a mano: spawns dinámicos, efectos temporales, lógica interna. Si dudas entre código y escena, escena.
+- Las escenas las puede estar editando el humano a la vez: trabaja en rama, avisa de qué `.tscn` tocas y no reescribas una escena entera sin necesidad. Los scripts de prueba (`tmp_tests/`) pueden montar nodos por código.
 - Multijugador: el diseño no lo menciona. Si se decide, se hace desde el día 1 (lista de jugadores, nunca uno global; host autoritativo; eventos en lugar de estado por frame).
 
 ## Git

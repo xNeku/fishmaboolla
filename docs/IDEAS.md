@@ -8,3 +8,4 @@ Pendientes de pensar en modo captura (libreta/móvil):
 - Nombre del sistema de apuestas dentro del juego.
 - Título final.
 - Cada arquetipo dibujado en tier I, II y III (tiene que escalar de verdad).
+- Tiempo lento al pescar: mientras dura la pesca, el mundo (bolas y resto del juego) va más lento y el jugador y el QTE a velocidad normal, para dar margen de esquiva y abrir mecánicas. Es viable (una escala de tiempo del mundo que el jugador y el QTE ignoran). A pensar: cuánto frenar (si es mucho, pescar deja de tener riesgo) y si depende de si hay aves activas o de la zona.

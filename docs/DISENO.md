@@ -81,7 +81,11 @@ Fuente de verdad del diseño. Marcas:
 - [PROPUESTA] Primer objetivo jugable: vertical slice con 2 Actos, no los 5.
 
 ## 8. Vida, daño y derrota
-- [ABIERTO] Vida del jugador, qué pasa al tocar una bola, game over. No se ha hablado todavía.
+- [DECIDIDO] El marinero tiene 3 vidas. Cada bola que le toca le quita una.
+- [DECIDIDO] Al perder las 3 vidas se acaba y hay que volver a empezar.
+- [DECIDIDO] Los escudos y otros buffs dan más margen ante los toques.
+- [PROPUESTA] Tras un toque, ~1 s de invulnerabilidad (con parpadeo) para no perder varias vidas de golpe.
+- [ABIERTO] Desde dónde se vuelve a empezar al perder (la sala, el Acto o toda la run) y qué se pierde.
 
 ## 9. Arte
 - [DECIDIDO] Todo el arte lo dibuja el humano a mano. Nada de arte con IA. Mientras tanto, programmer art por código. El arte final entra cambiando rutas en los datos.

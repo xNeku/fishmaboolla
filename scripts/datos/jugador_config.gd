@@ -26,6 +26,12 @@ extends Resource
 ## Espera entre disparos en segundos. Manteniendo el botón dispara a este ritmo.
 @export var cooldown_disparo: float = 0.25
 
+@export_group("Vida")
+## Vidas con las que empieza el marinero. Cada toque de bola quita una.
+@export var vidas_maximas: int = 3
+## Segundos de invulnerabilidad (con parpadeo) tras recibir un toque.
+@export var invulnerabilidad_tras_toque: float = 1.0
+
 @export_group("Cuerpo")
 @export var ancho: float = 48.0
 @export var alto: float = 80.0

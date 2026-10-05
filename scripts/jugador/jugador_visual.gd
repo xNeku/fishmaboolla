@@ -39,7 +39,9 @@ func _draw() -> void:
 		sx = 1.0 + _squash * 0.15
 		sy = 1.0 - _squash * 0.15
 	var alpha: float = 1.0
-	if jugador.invulnerable:
+	if jugador.muerto:
+		alpha = 0.35
+	elif jugador.invulnerable:
 		alpha = 0.5 + 0.3 * sin(Time.get_ticks_msec() * 0.05)
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2(sx, sy))
 

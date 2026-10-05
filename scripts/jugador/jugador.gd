@@ -7,9 +7,10 @@ signal salto_iniciado
 signal aterrizado
 signal dash_iniciado(direccion: int)
 signal dash_terminado
-## Una bola ha tocado al marinero (no se emite durante los i-frames del dash).
-## Qué consecuencia tiene está por decidir en el diseño.
+## Una bola ha tocado al marinero y le ha quitado una vida (no se emite con i-frames).
 signal tocado
+## El marinero se ha quedado sin vidas. Se emite una sola vez.
+signal murio
 ## El marinero dispara. `origen` es la punta de arriba del cuerpo.
 signal disparado(origen: Vector2)
 
@@ -22,9 +23,14 @@ var direccion_mirada: int = 1
 var en_suelo: bool = true
 var dashing: bool = false
 
+var vidas: int = 0
+var muerto: bool = false
+## Segundos que quedan de invulnerabilidad tras un toque.
+var invulnerabilidad_restante: float = 0.0
+
 var invulnerable: bool:
 	get:
-		return dashing and config.dash_invulnerable
+		return (dashing and config.dash_invulnerable) or invulnerabilidad_restante > 0.0
 
 ## Segundos que faltan para poder volver a hacer dash.
 var cooldown_dash_restante: float = 0.0
@@ -37,17 +43,22 @@ var _dash_tiempo: float = 0.0
 var _dash_dir: int = 1
 
 
+func _ready() -> void:
+	vidas = config.vidas_maximas
+
+
 func orden_mover(direccion: float) -> void:
-	_intencion_mover = clampf(direccion, -1.0, 1.0)
+	_intencion_mover = 0.0 if muerto else clampf(direccion, -1.0, 1.0)
 
 
 func orden_saltar() -> void:
-	_salto_pedido = true
+	if not muerto:
+		_salto_pedido = true
 
 
-## Devuelve true si el disparo salió (false si sigue el cooldown).
+## Devuelve true si el disparo salió (false si sigue el cooldown o está muerto).
 func orden_disparar() -> bool:
-	if cooldown_disparo_restante > 0.0:
+	if muerto or cooldown_disparo_restante > 0.0:
 		return false
 	cooldown_disparo_restante = config.cooldown_disparo
 	disparado.emit(Vector2(position.x, position.y - config.alto))
@@ -56,7 +67,7 @@ func orden_disparar() -> bool:
 
 ## Devuelve true si el dash arrancó.
 func orden_dash(direccion: int) -> bool:
-	if dashing or cooldown_dash_restante > 0.0 or direccion == 0:
+	if muerto or dashing or cooldown_dash_restante > 0.0 or direccion == 0:
 		return false
 	dashing = true
 	_dash_dir = signi(direccion)
@@ -77,13 +88,20 @@ func toca_circulo(centro: Vector2, radio: float) -> bool:
 
 ## Devuelve true si el toque cuenta (false durante los i-frames).
 func recibir_toque() -> bool:
-	if invulnerable:
+	if muerto or invulnerable:
 		return false
+	vidas -= 1
 	tocado.emit()
+	if vidas <= 0:
+		muerto = true
+		murio.emit()
+	else:
+		invulnerabilidad_restante = config.invulnerabilidad_tras_toque
 	return true
 
 
 func _physics_process(delta: float) -> void:
+	invulnerabilidad_restante = maxf(0.0, invulnerabilidad_restante - delta)
 	cooldown_dash_restante = maxf(0.0, cooldown_dash_restante - delta)
 	cooldown_disparo_restante = maxf(0.0, cooldown_disparo_restante - delta)
 

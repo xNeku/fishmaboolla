@@ -8,7 +8,10 @@ Fuente de verdad del diseño. Marcas:
 ## 1. Concepto
 - [DECIDIDO] Reinterpretación moderna de *Pang* + pesca exprés + progresión roguelike. Arcade 2D rápido, frenético, centrado en game feel y dopamina.
 - [DECIDIDO] Protagonista: marinero gallego da Mariña, chubasquero amarillo.
-- [DECIDIDO] Enemigos: gaviotas y aves marinas que botan por la pantalla con física parabólica de rebote estilo Pang y se dividen en dos al ser impactadas por el arpón vertical. Van mutando de lo costero a lo cósmico según avanzan los Actos.
+- [DECIDIDO] Enemigos: gaviotas y aves marinas que atacan lanzando bolas al jugador. Van mutando de lo costero a lo cósmico según avanzan los Actos.
+- [DECIDIDO] Las bolas siguen la física parabólica de rebote estilo Pang. El jugador les dispara con el arpón vertical; al impactar se dividen en dos y siguen rebotando, hasta que se rompen del todo.
+- [ABIERTO] Comportamiento de las aves: cuándo y cuántas bolas lanzan, si se mueven, si el jugador puede dañarlas o son intocables.
+- [ABIERTO] Condición de fin de sala (romper todas las bolas, matar al ave, un número fijo de oleadas...).
 - [ABIERTO] Título final del juego.
 - [ABIERTO] Plataforma objetivo (PC/Steam, móvil...).
 
@@ -19,7 +22,7 @@ Fuente de verdad del diseño. Marcas:
 - [PROPUESTA] Dash solo horizontal, anula la gravedad mientras dura, con cooldown corto. Ventana de doble tap ~0.25 s.
 - [ABIERTO] Plataformas intermedias en las salas (no se sabe aún). Si las hay, son solo para el jugador.
 
-## 3. Bolas / aves (física Pang)
+## 3. Bolas (física Pang)
 - [DECIDIDO] Las bolas solo rebotan contra los límites exteriores de la sala. Nunca contra plataformas, aunque las haya.
 - [DECIDIDO] Al recibir impacto del arpón, la bola se divide en dos más pequeñas.
 - [PROPUESTA] Gravedad constante y altura de rebote fija por tamaño (tier), para que los arcos sean memorizables. 3 tamaños; el más pequeño muere sin dividirse. Las pequeñas van más rápido.

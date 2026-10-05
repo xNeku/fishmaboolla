@@ -13,7 +13,8 @@ Fuente de verdad del diseño. Marcas:
 - [DECIDIDO] Las bolas siguen la física parabólica de rebote estilo Pang. El jugador les dispara con el arpón vertical; al impactar se dividen en dos y siguen rebotando, hasta que se rompen del todo.
 - [DECIDIDO] Trama: el protagonista es un pescador de la Mariña gallega que solo quiere pescar tranquilo; las aves quieren robarle los peces y ahí empieza el conflicto. El tono va escalando hacia la paranoia y la locura.
 - [DECIDIDO] En cada zona hay un ave enorme como amenaza, pero no se ve en pantalla hasta la fase final (boss) de la zona. En el boss se ve arriba, lanzando ataques que modifican mucho el patrón de las bolas.
-- [ABIERTO] Cómo se generan las bolas fuera de los bosses, donde el ave no se ve (desde dónde, con qué ritmo y patrones).
+- [DECIDIDO] Las bolas caen del techo y de todas las esquinas. Se diseñan patrones que hagan la partida interesante y desafiante: el juego es una versión extraña de bullet hell, con el jugador esquivando y disparando.
+- [ABIERTO] Qué patrones concretos hay, con qué ritmo y cómo escalan por Acto.
 - [DECIDIDO] El boss y el mini-boss, además de lanzar bolas, tienen vida propia y el jugador tiene que dañarlos para vencerlos. Algunas de sus bolas se pueden romper; otras solo se esquivan, porque no se quedan permanentes en pantalla.
 - [ABIERTO] Ataques concretos del boss y del mini-boss, y cómo se les hace daño (arpón directo, bolas devueltas...).
 - [DECIDIDO] El Acto termina al matar al boss (ver sección 7).
@@ -82,7 +83,7 @@ Fuente de verdad del diseño. Marcas:
 - [ABIERTO] Qué es ese punto de espera (menú simple, hub, mapa...) y si los Actos se desbloquean en orden o se pueden elegir.
 - [DECIDIDO] Descansos: en pantalla nada ataca y el jugador tiene entre 30 y 60 s para pescar todo lo que pueda. Cuántos buffs saca depende de su habilidad, porque la pesca es un minijuego de reflejos y velocidad.
 - [PROPUESTA] La duración de cada descanso, el número de tandas y de bolas por tanda van como datos, para ajustarlos sin tocar código.
-- [ABIERTO] Las apuestas entre niveles dependían de las salas, que ya no existen. Decidir si desaparecen, pasan a los descansos o van entre Actos.
+- [DECIDIDO] No hay apuestas. Con las pescas de los descansos y las del medio ya hay suficiente dopamina, y no hay que saturar al jugador.
 - [PROPUESTA] Primer objetivo jugable: vertical slice con 2 Actos, no los 5.
 
 ## 8. Vida, daño y derrota

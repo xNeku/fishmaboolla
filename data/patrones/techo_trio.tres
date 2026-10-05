@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="PatronBolas" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/datos/patron_bolas.gd" id="1_pat"]
+[ext_resource type="Script" path="res://scripts/datos/entrada_patron.gd" id="2_ent"]
+[ext_resource type="Resource" path="res://data/bolas/bola_media.tres" id="3_b"]
+
+[sub_resource type="Resource" id="Resource_0"]
+script = ExtResource("2_ent")
+bola = ExtResource("3_b")
+origen = 0
+x_relativo = 0.20
+direccion = 1
+retraso = 0.00
+impulso = 0.0
+
+[sub_resource type="Resource" id="Resource_1"]
+script = ExtResource("2_ent")
+bola = ExtResource("3_b")
+origen = 0
+x_relativo = 0.50
+direccion = -1
+retraso = 0.35
+impulso = 0.0
+
+[sub_resource type="Resource" id="Resource_2"]
+script = ExtResource("2_ent")
+bola = ExtResource("3_b")
+origen = 0
+x_relativo = 0.80
+direccion = 1
+retraso = 0.70
+impulso = 0.0
+
+[resource]
+script = ExtResource("1_pat")
+nombre = "Trío del techo"
+entradas = Array[ExtResource("2_ent")]([SubResource("Resource_0"), SubResource("Resource_1"), SubResource("Resource_2")])

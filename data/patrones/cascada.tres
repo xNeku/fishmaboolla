@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="PatronBolas" load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/datos/patron_bolas.gd" id="1_pat"]
+[ext_resource type="Script" path="res://scripts/datos/entrada_patron.gd" id="2_ent"]
+[ext_resource type="Resource" path="res://data/bolas/bola_pequena.tres" id="3_b"]
+
+[sub_resource type="Resource" id="Resource_0"]
+script = ExtResource("2_ent")
+bola = ExtResource("3_b")
+origen = 0
+x_relativo = 0.10
+direccion = 1
+retraso = 0.00
+impulso = 0.0
+
+[sub_resource type="Resource" id="Resource_1"]
+script = ExtResource("2_ent")
+bola = ExtResource("3_b")
+origen = 0
+x_relativo = 0.26
+direccion = -1
+retraso = 0.30
+impulso = 0.0
+
+[sub_resource type="Resource" id="Resource_2"]
+script = ExtResource("2_ent")
+bola = ExtResource("3_b")
+origen = 0
+x_relativo = 0.42
+direccion = 1
+retraso = 0.60
+impulso = 0.0
+
+[sub_resource type="Resource" id="Resource_3"]
+script = ExtResource("2_ent")
+bola = ExtResource("3_b")
+origen = 0
+x_relativo = 0.58
+direccion = -1
+retraso = 0.90
+impulso = 0.0
+
+[sub_resource type="Resource" id="Resource_4"]
+script = ExtResource("2_ent")
+bola = ExtResource("3_b")
+origen = 0
+x_relativo = 0.74
+direccion = 1
+retraso = 1.20
+impulso = 0.0
+
+[sub_resource type="Resource" id="Resource_5"]
+script = ExtResource("2_ent")
+bola = ExtResource("3_b")
+origen = 0
+x_relativo = 0.90
+direccion = -1
+retraso = 1.50
+impulso = 0.0
+
+[resource]
+script = ExtResource("1_pat")
+nombre = "Cascada"
+entradas = Array[ExtResource("2_ent")]([SubResource("Resource_0"), SubResource("Resource_1"), SubResource("Resource_2"), SubResource("Resource_3"), SubResource("Resource_4"), SubResource("Resource_5")])

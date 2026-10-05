@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="TandaBolas" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/datos/tanda_bolas.gd" id="1_tan"]
+[ext_resource type="Script" path="res://scripts/datos/patron_bolas.gd" id="0_pat"]
+[ext_resource type="Resource" path="res://data/patrones/cascada.tres" id="2_p"]
+[ext_resource type="Resource" path="res://data/patrones/cuatro_esquinas.tres" id="3_p"]
+[ext_resource type="Resource" path="res://data/patrones/esquinas_superiores.tres" id="4_p"]
+[ext_resource type="Resource" path="res://data/patrones/techo_trio.tres" id="5_p"]
+
+[resource]
+script = ExtResource("1_tan")
+nombre = "Tanda 3"
+patrones = Array[ExtResource("0_pat")]([ExtResource("4_p"), ExtResource("3_p"), ExtResource("2_p"), ExtResource("5_p")])
+segundos_entre_patrones = 1.5

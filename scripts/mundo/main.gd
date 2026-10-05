@@ -1,9 +1,14 @@
 extends Node2D
-## Sala de prueba. El decorado y el jugador viven en la escena (main.tscn);
-## este script solo pinta el estado de depuración.
+## Nivel de prueba. El decorado, la sala y el jugador viven en la escena (main.tscn);
+## este script conecta las piezas y pinta el estado de depuración.
 
+@onready var _sala: Sala = $Sala
 @onready var _jugador: Jugador = $Jugador
 @onready var _estado: Label = $Estado
+
+
+func _ready() -> void:
+	_jugador.limites = _sala.limites
 
 
 func _process(_delta: float) -> void:

@@ -7,6 +7,7 @@ Fuente de verdad del diseño. Marcas:
 
 ## 1. Concepto
 - [DECIDIDO] Reinterpretación moderna de *Pang* + pesca exprés + progresión roguelike. Arcade 2D rápido, frenético, centrado en game feel y dopamina.
+- [DECIDIDO] El juego tiene que sentirse como un Pang con aire de bullet hell: arena grande y cámara alejada, con muchas bolas que leer y esquivar.
 - [DECIDIDO] Protagonista: marinero gallego da Mariña, chubasquero amarillo.
 - [DECIDIDO] Enemigos: gaviotas y aves marinas que atacan lanzando bolas al jugador. Van mutando de lo costero a lo cósmico según avanzan los Actos.
 - [DECIDIDO] Las bolas siguen la física parabólica de rebote estilo Pang. El jugador les dispara con el arpón vertical; al impactar se dividen en dos y siguen rebotando, hasta que se rompen del todo.

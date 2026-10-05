@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BolaDatos" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/datos/bola_datos.gd" id="1_datos"]
+[ext_resource type="Resource" path="res://data/bolas/bola_media.tres" id="2_siguiente"]
+
+[resource]
+script = ExtResource("1_datos")
+id = &"bola_grande"
+radio = 56.0
+altura_rebote = 380.0
+velocidad_horizontal = 130.0
+impulso_division = 380.0
+color = Color(0.9, 0.3, 0.35, 1)
+siguiente = ExtResource("2_siguiente")

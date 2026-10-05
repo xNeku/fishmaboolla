@@ -1,0 +1,13 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/enemigos/bola.gd" id="1_bola"]
+[ext_resource type="Resource" path="res://data/bolas/bola_grande.tres" id="2_datos"]
+[ext_resource type="Script" path="res://scripts/enemigos/bola_visual.gd" id="3_visual"]
+
+[node name="Bola" type="Node2D"]
+script = ExtResource("1_bola")
+datos = ExtResource("2_datos")
+
+[node name="Visual" type="Node2D" parent="." node_paths=PackedStringArray("bola")]
+script = ExtResource("3_visual")
+bola = NodePath("..")

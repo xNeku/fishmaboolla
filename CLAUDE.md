@@ -18,6 +18,8 @@ Arcade 2D tipo *Pang* + pesca exprés + progresión roguelike. Marinero gallego,
 - Renderer: Compatibility (es el que funciona bien en Android).
 - Nombres de propiedades de Godot 4 exactos (ej. `Camera2D.enabled`, no `current`). Si dudas de un nombre o una señal, compruébalo en headless en vez de suponerlo.
 - Una escena arrastrada al árbol se instancia como nodo; arrastrada a un campo `PackedScene` del inspector queda como referencia. Ya causó un bug.
+- Los `Control` (ColorRect, ReferenceRect, Label...) dentro de escenas de juego llevan `mouse_filter = Ignore` (2). Por defecto son `Stop` y se comen los clics y toques del juego.
+- En `.tscn` escritos a mano, las propiedades que apuntan a nodos necesitan `node_paths=PackedStringArray("propiedad")` en la cabecera del nodo.
 
 ## Estructura del repo
 - `CLAUDE.md` (este archivo).

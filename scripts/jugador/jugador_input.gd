@@ -19,6 +19,8 @@ func _physics_process(delta: float) -> void:
 	jugador.orden_mover(Input.get_axis("mover_izq", "mover_der"))
 	if Input.is_action_just_pressed("saltar"):
 		jugador.orden_saltar()
+	if Input.is_action_pressed("disparar"):
+		jugador.orden_disparar()
 	_comprobar_doble_tap("mover_izq", -1)
 	_comprobar_doble_tap("mover_der", 1)
 

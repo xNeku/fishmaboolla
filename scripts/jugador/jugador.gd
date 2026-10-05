@@ -10,6 +10,8 @@ signal dash_terminado
 ## Una bola ha tocado al marinero (no se emite durante los i-frames del dash).
 ## Qué consecuencia tiene está por decidir en el diseño.
 signal tocado
+## El marinero dispara. `origen` es la punta de arriba del cuerpo.
+signal disparado(origen: Vector2)
 
 @export var config: JugadorConfig
 ## Límites de la sala. El borde inferior es el suelo.
@@ -26,6 +28,8 @@ var invulnerable: bool:
 
 ## Segundos que faltan para poder volver a hacer dash.
 var cooldown_dash_restante: float = 0.0
+## Segundos que faltan para poder volver a disparar.
+var cooldown_disparo_restante: float = 0.0
 
 var _intencion_mover: float = 0.0
 var _salto_pedido: bool = false
@@ -39,6 +43,15 @@ func orden_mover(direccion: float) -> void:
 
 func orden_saltar() -> void:
 	_salto_pedido = true
+
+
+## Devuelve true si el disparo salió (false si sigue el cooldown).
+func orden_disparar() -> bool:
+	if cooldown_disparo_restante > 0.0:
+		return false
+	cooldown_disparo_restante = config.cooldown_disparo
+	disparado.emit(Vector2(position.x, position.y - config.alto))
+	return true
 
 
 ## Devuelve true si el dash arrancó.
@@ -72,6 +85,7 @@ func recibir_toque() -> bool:
 
 func _physics_process(delta: float) -> void:
 	cooldown_dash_restante = maxf(0.0, cooldown_dash_restante - delta)
+	cooldown_disparo_restante = maxf(0.0, cooldown_disparo_restante - delta)
 
 	if dashing:
 		# El dash anula la gravedad y el movimiento vertical; velocidad.y se conserva.

@@ -22,6 +22,10 @@ extends Resource
 ## Tiempo máximo entre dos taps de la misma dirección para activar el dash.
 @export var ventana_doble_tap: float = 0.25
 
+@export_group("Arma")
+## Espera entre disparos en segundos. Manteniendo el botón dispara a este ritmo.
+@export var cooldown_disparo: float = 0.25
+
 @export_group("Cuerpo")
 @export var ancho: float = 48.0
 @export var alto: float = 80.0

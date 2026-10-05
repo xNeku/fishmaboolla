@@ -3,6 +3,7 @@ extends Node2D
 ## escena (main.tscn); este script conecta las piezas y pinta el estado de depuración.
 
 const SEGUNDOS_REAPARICION: float = 1.2
+const ESCENA_ARPON: PackedScene = preload("res://scenes/arpon.tscn")
 
 @onready var _sala: Sala = $Sala
 @onready var _jugador: Jugador = $Jugador
@@ -25,6 +26,7 @@ func _ready() -> void:
 	_dir_inicial = _bola_inicial.direccion_inicial
 	_preparar(_bola_inicial)
 	_jugador.tocado.connect(func() -> void: _toques += 1)
+	_jugador.disparado.connect(_crear_arpon)
 
 
 func _physics_process(delta: float) -> void:
@@ -41,18 +43,8 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	var estado: String = "dash" if _jugador.dashing else ("suelo" if _jugador.en_suelo else "aire")
 	var n_bolas: int = get_tree().get_nodes_in_group("bolas").size()
-	_estado.text = "%s  cd dash: %.2f\nbolas: %d  toques: %d" % [estado, _jugador.cooldown_dash_restante, n_bolas, _toques]
-
-
-# DEPURACIÓN: clic/toque sobre una bola la rompe. Se quita cuando haya arpón.
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var punto: Vector2 = (make_input_local(event) as InputEventMouseButton).position
-		for nodo: Node in get_tree().get_nodes_in_group("bolas"):
-			var bola: Bola = nodo as Bola
-			if bola.position.distance_to(punto) <= bola.radio:
-				bola.recibir_impacto()
-				break
+	var n_arpones: int = get_tree().get_nodes_in_group("arpones").size()
+	_estado.text = "%s  cd dash: %.2f\nbolas: %d  arpones: %d  toques: %d" % [estado, _jugador.cooldown_dash_restante, n_bolas, n_arpones, _toques]
 
 
 ## Avisa al jugador una vez por contacto (no cada frame mientras dura el solape).
@@ -68,6 +60,13 @@ func _comprobar_contacto() -> void:
 	elif not _tocando and _jugador.recibir_toque():
 		# Si el toque cayó en i-frames, no cuenta y se reintenta mientras siga el solape.
 		_tocando = true
+
+
+func _crear_arpon(origen: Vector2) -> void:
+	var arpon: Arpon = ESCENA_ARPON.instantiate() as Arpon
+	arpon.limites = _sala.limites
+	arpon.position = origen
+	add_child(arpon)
 
 
 func _preparar(bola: Bola) -> void:

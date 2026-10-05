@@ -1,0 +1,11 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/jugador/arpon.gd" id="1_arpon"]
+[ext_resource type="Script" path="res://scripts/jugador/arpon_visual.gd" id="2_visual"]
+
+[node name="Arpon" type="Node2D"]
+script = ExtResource("1_arpon")
+
+[node name="Visual" type="Node2D" parent="." node_paths=PackedStringArray("arpon")]
+script = ExtResource("2_visual")
+arpon = NodePath("..")

@@ -12,5 +12,6 @@ dash_duracion = 0.15
 dash_cooldown = 0.4
 dash_invulnerable = true
 ventana_doble_tap = 0.25
+cooldown_disparo = 0.25
 ancho = 48.0
 alto = 80.0

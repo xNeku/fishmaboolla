@@ -13,7 +13,7 @@ signal tocado
 
 @export var config: JugadorConfig
 ## Límites de la sala. El borde inferior es el suelo.
-@export var limites: Rect2 = Rect2(0.0, 0.0, 1280.0, 640.0)
+@export var limites: Rect2 = Rect2(80.0, 60.0, 1760.0, 960.0)
 
 var velocidad: Vector2 = Vector2.ZERO
 var direccion_mirada: int = 1

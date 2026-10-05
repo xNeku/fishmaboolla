@@ -7,8 +7,8 @@
 script = ExtResource("1_datos")
 id = &"bola_media"
 radio = 36.0
-altura_rebote = 300.0
-velocidad_horizontal = 180.0
+altura_rebote = 480.0
+velocidad_horizontal = 270.0
 impulso_division = 380.0
 color = Color(0.95, 0.55, 0.25, 1)
 siguiente = ExtResource("2_siguiente")

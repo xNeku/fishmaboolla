@@ -7,35 +7,35 @@ script = ExtResource("1_sala")
 
 [node name="Techo" type="ColorRect" parent="."]
 mouse_filter = 2
-offset_right = 1280.0
-offset_bottom = 48.0
+offset_right = 1920.0
+offset_bottom = 60.0
 color = Color(0.2, 0.28, 0.35, 1)
 
 [node name="Suelo" type="ColorRect" parent="."]
 mouse_filter = 2
-offset_top = 640.0
-offset_right = 1280.0
-offset_bottom = 720.0
+offset_top = 1020.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 color = Color(0.2, 0.28, 0.35, 1)
 
 [node name="ParedIzquierda" type="ColorRect" parent="."]
 mouse_filter = 2
-offset_top = 48.0
-offset_right = 64.0
-offset_bottom = 640.0
+offset_top = 60.0
+offset_right = 80.0
+offset_bottom = 1020.0
 color = Color(0.2, 0.28, 0.35, 1)
 
 [node name="ParedDerecha" type="ColorRect" parent="."]
 mouse_filter = 2
-offset_left = 1216.0
-offset_top = 48.0
-offset_right = 1280.0
-offset_bottom = 640.0
+offset_left = 1840.0
+offset_top = 60.0
+offset_right = 1920.0
+offset_bottom = 1020.0
 color = Color(0.2, 0.28, 0.35, 1)
 
 [node name="Limites" type="ReferenceRect" parent="."]
 mouse_filter = 2
-offset_left = 64.0
-offset_top = 48.0
-offset_right = 1216.0
-offset_bottom = 640.0
+offset_left = 80.0
+offset_top = 60.0
+offset_right = 1840.0
+offset_bottom = 1020.0

@@ -4,10 +4,10 @@
 
 [resource]
 script = ExtResource("1_cfg")
-velocidad_lateral = 420.0
+velocidad_lateral = 630.0
 gravedad = 2200.0
 velocidad_salto = 900.0
-dash_velocidad = 1100.0
+dash_velocidad = 1650.0
 dash_duracion = 0.15
 dash_cooldown = 0.4
 dash_invulnerable = true

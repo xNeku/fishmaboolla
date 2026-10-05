@@ -4,7 +4,7 @@ extends Resource
 
 @export_group("Movimiento")
 ## Velocidad horizontal en px/s. Instantánea, sin aceleración.
-@export var velocidad_lateral: float = 420.0
+@export var velocidad_lateral: float = 630.0
 ## Gravedad en px/s². Más alta = salto más seco.
 @export var gravedad: float = 2200.0
 ## Velocidad inicial del salto en px/s. Altura ≈ v² / (2·g).
@@ -12,7 +12,7 @@ extends Resource
 
 @export_group("Dash")
 ## Velocidad horizontal durante el dash en px/s.
-@export var dash_velocidad: float = 1100.0
+@export var dash_velocidad: float = 1650.0
 ## Duración del dash en segundos. Distancia = velocidad × duración.
 @export var dash_duracion: float = 0.15
 ## Espera tras acabar un dash antes de poder hacer otro, en segundos.

@@ -7,6 +7,9 @@ signal salto_iniciado
 signal aterrizado
 signal dash_iniciado(direccion: int)
 signal dash_terminado
+## Una bola ha tocado al marinero (no se emite durante los i-frames del dash).
+## Qué consecuencia tiene está por decidir en el diseño.
+signal tocado
 
 @export var config: JugadorConfig
 ## Límites de la sala. El borde inferior es el suelo.
@@ -47,6 +50,23 @@ func orden_dash(direccion: int) -> bool:
 	direccion_mirada = _dash_dir
 	_dash_tiempo = config.dash_duracion
 	dash_iniciado.emit(_dash_dir)
+	return true
+
+
+## ¿Solapa el círculo con el cuerpo del marinero (rectángulo con origen en los pies)?
+func toca_circulo(centro: Vector2, radio: float) -> bool:
+	var cuerpo := Rect2(position.x - config.ancho * 0.5, position.y - config.alto, config.ancho, config.alto)
+	var cercano := Vector2(
+			clampf(centro.x, cuerpo.position.x, cuerpo.end.x),
+			clampf(centro.y, cuerpo.position.y, cuerpo.end.y))
+	return cercano.distance_squared_to(centro) <= radio * radio
+
+
+## Devuelve true si el toque cuenta (false durante los i-frames).
+func recibir_toque() -> bool:
+	if invulnerable:
+		return false
+	tocado.emit()
 	return true
 
 

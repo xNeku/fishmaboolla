@@ -13,6 +13,8 @@ var _datos_inicial: BolaDatos
 var _pos_inicial: Vector2
 var _dir_inicial: int
 var _espera: float = 0.0
+var _tocando: bool = false
+var _toques: int = 0
 
 
 func _ready() -> void:
@@ -22,9 +24,11 @@ func _ready() -> void:
 	_pos_inicial = _bola_inicial.position
 	_dir_inicial = _bola_inicial.direccion_inicial
 	_preparar(_bola_inicial)
+	_jugador.tocado.connect(func() -> void: _toques += 1)
 
 
 func _physics_process(delta: float) -> void:
+	_comprobar_contacto()
 	if get_tree().get_nodes_in_group("bolas").is_empty():
 		_espera += delta
 		if _espera >= SEGUNDOS_REAPARICION:
@@ -37,7 +41,7 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	var estado: String = "dash" if _jugador.dashing else ("suelo" if _jugador.en_suelo else "aire")
 	var n_bolas: int = get_tree().get_nodes_in_group("bolas").size()
-	_estado.text = "%s  cd dash: %.2f\nbolas: %d" % [estado, _jugador.cooldown_dash_restante, n_bolas]
+	_estado.text = "%s  cd dash: %.2f\nbolas: %d  toques: %d" % [estado, _jugador.cooldown_dash_restante, n_bolas, _toques]
 
 
 # DEPURACIÓN: clic/toque sobre una bola la rompe. Se quita cuando haya arpón.
@@ -49,6 +53,21 @@ func _unhandled_input(event: InputEvent) -> void:
 			if bola.position.distance_to(punto) <= bola.radio:
 				bola.recibir_impacto()
 				break
+
+
+## Avisa al jugador una vez por contacto (no cada frame mientras dura el solape).
+func _comprobar_contacto() -> void:
+	var solapa: bool = false
+	for nodo: Node in get_tree().get_nodes_in_group("bolas"):
+		var bola: Bola = nodo as Bola
+		if _jugador.toca_circulo(bola.position, bola.radio):
+			solapa = true
+			break
+	if not solapa:
+		_tocando = false
+	elif not _tocando and _jugador.recibir_toque():
+		# Si el toque cayó en i-frames, no cuenta y se reintenta mientras siga el solape.
+		_tocando = true
 
 
 func _preparar(bola: Bola) -> void:

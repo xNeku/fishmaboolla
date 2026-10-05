@@ -9,16 +9,21 @@ const PIEL: Color = Color(0.93, 0.74, 0.58)
 
 @export var jugador: Jugador
 
+const DURACION_DESTELLO: float = 0.25
+
 var _squash: float = 0.0
+var _destello: float = 0.0
 
 
 func _ready() -> void:
 	jugador.aterrizado.connect(func() -> void: _squash = 1.0)
 	jugador.salto_iniciado.connect(func() -> void: _squash = -1.0)
+	jugador.tocado.connect(func() -> void: _destello = DURACION_DESTELLO)
 
 
 func _process(delta: float) -> void:
 	_squash = move_toward(_squash, 0.0, delta * 8.0)
+	_destello = maxf(0.0, _destello - delta)
 	queue_redraw()
 
 
@@ -40,7 +45,8 @@ func _draw() -> void:
 
 	var cuerpo_h: float = h * 0.68
 	var cuerpo := Rect2(-w * 0.5, -cuerpo_h, w, cuerpo_h)
-	draw_rect(cuerpo, Color(AMARILLO, alpha))
+	var color_cuerpo: Color = AMARILLO.lerp(Color(1.0, 0.15, 0.15), _destello / DURACION_DESTELLO)
+	draw_rect(cuerpo, Color(color_cuerpo, alpha))
 	draw_rect(cuerpo, Color(AMARILLO_OSCURO, alpha), false, 3.0)
 
 	var cabeza_r: float = h * 0.15
